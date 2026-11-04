@@ -110,7 +110,6 @@ X-API-KEY
 
 O servidor verifica essa chave antes de processar as requisições protegidas.
 
-Como se trata de um protótipo acadêmico executado localmente, essa implementação tem finalidade demonstrativa.
 
 ## Autor
 
