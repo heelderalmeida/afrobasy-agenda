@@ -1,97 +1,185 @@
-Afrobasy Agenda
+# Afrobasy Agenda
+
 Sistema cliente-servidor desenvolvido em Python para o gerenciamento de agendamentos de um salão de beleza.
 
-Projeto desenvolvido para a disciplina Projeto Integrador III-A, com o objetivo de aplicar na prática os conceitos de arquitetura cliente-servidor, comunicação em rede e segurança básica.
+Projeto desenvolvido para a disciplina **Projeto Integrador III-A**, do curso de **Análise e Desenvolvimento de Sistemas da PUC Goiás**.
 
-Objetivo
-O Afrobasy Agenda foi desenvolvido para permitir que clientes consultem serviços e horários disponíveis e realizem solicitações de agendamento de forma simples.
+## Sobre o projeto
 
-O projeto utiliza uma arquitetura cliente-servidor, na qual o cliente realiza as solicitações e o servidor é responsável pelo processamento e armazenamento das informações.
+O Afrobasy Agenda foi desenvolvido com o objetivo de criar uma solução simples para consulta de serviços, horários e solicitações de agendamento.
 
-Funcionalidades
-Consultar serviços disponíveis
-Consultar horários disponíveis
-Solicitar um agendamento
-Gerar código de identificação do agendamento
-Consultar agendamento pelo código
-Cancelar agendamento
-Liberar novamente o horário após cancelamento
-Validar informações enviadas pelo cliente
-Arquitetura
-O projeto é dividido em duas aplicações:
+O principal objetivo acadêmico do projeto é demonstrar, na prática, o funcionamento de uma **arquitetura cliente-servidor**.
 
+O sistema possui duas aplicações:
+
+- `cliente.py`: responsável pela interação com o usuário e pelo envio das solicitações.
+- `servidor.py`: responsável por receber as solicitações, processar as regras e acessar os dados.
+
+## Funcionalidades
+
+O sistema permite:
+
+- Consultar serviços disponíveis;
+- Consultar horários disponíveis;
+- Solicitar um agendamento;
+- Gerar um código de identificação para o agendamento;
+- Consultar um agendamento pelo código;
+- Cancelar um agendamento;
+- Liberar novamente o horário após o cancelamento.
+
+## Arquitetura cliente-servidor
+
+O funcionamento do sistema pode ser representado da seguinte forma:
+
+```text
 CLIENTE.PY
     |
-    | Requisições HTTPS
+    | Requisição HTTPS
     | GET / POST / DELETE
+    |
     v
 SERVIDOR.PY
     |
-    | Processamento e validações
+    | Processamento
+    | Validação
+    |
     v
 ARQUIVOS JSON
     |
-    |-- servicos.json
-    |-- horarios.json
-    |-- agendamentos.json
-O programa cliente não acessa diretamente os arquivos de dados. Todas as operações são enviadas ao servidor, que processa a solicitação e retorna uma resposta.
+    +-- servicos.json
+    +-- horarios.json
+    +-- agendamentos.json
+```
 
-Tecnologias utilizadas
-Python 3
-Flask
-Requests
-JSON
-HTTPS
-Chave de API
-Estrutura do projeto
+O cliente não acessa diretamente os arquivos de dados.
+
+Todas as solicitações são enviadas ao servidor, que realiza o processamento e retorna uma resposta ao cliente.
+
+## Tecnologias utilizadas
+
+- Python 3
+- Flask
+- Requests
+- JSON
+- HTTPS
+- Chave de API
+
+## Estrutura do projeto
+
+```text
 afrobasy-agenda/
 |
-|-- dados/
-|   |-- agendamentos.json
-|   |-- horarios.json
-|   `-- servicos.json
++-- dados/
+|   +-- agendamentos.json
+|   +-- horarios.json
+|   +-- servicos.json
 |
-|-- cliente.py
-|-- servidor.py
-|-- resetar_dados.py
-|-- requirements.txt
-|-- README.md
-`-- .gitignore
++-- cliente.py
++-- servidor.py
++-- resetar_dados.py
++-- requirements.txt
++-- README.md
++-- .gitignore
+```
 
-Segurança
-O protótipo utiliza dois mecanismos básicos de proteção:
+## Como executar o projeto
 
-HTTPS local
-A comunicação entre cliente e servidor utiliza HTTPS com certificado local autoassinado.
+### 1. Criar o ambiente virtual
 
-Chave de API
-As requisições protegidas enviam uma chave através do cabeçalho:
+Abra o terminal na pasta do projeto e execute:
 
+```powershell
+py -m venv .venv
+```
+
+### 2. Ativar o ambiente virtual
+
+```powershell
+.venv\Scripts\Activate.ps1
+```
+
+### 3. Instalar as dependências
+
+```powershell
+py -m pip install -r requirements.txt
+```
+
+### 4. Iniciar o servidor
+
+```powershell
+py servidor.py
+```
+
+O servidor será iniciado localmente em:
+
+```text
+https://127.0.0.1:5000
+```
+
+Mantenha esse terminal aberto.
+
+### 5. Iniciar o cliente
+
+Abra um segundo terminal e ative novamente o ambiente virtual:
+
+```powershell
+.venv\Scripts\Activate.ps1
+```
+
+Depois execute:
+
+```powershell
+py cliente.py
+```
+
+O menu principal será exibido:
+
+```text
+AFROBASY AGENDA
+
+1 - Consultar serviços
+2 - Consultar horários disponíveis
+3 - Solicitar agendamento
+4 - Consultar meu agendamento
+5 - Cancelar agendamento
+0 - Sair
+```
+
+## Armazenamento dos dados
+
+Para manter o projeto simples e focado na arquitetura cliente-servidor, foram utilizados arquivos JSON em vez de banco de dados.
+
+Os arquivos utilizados são:
+
+- `servicos.json`: serviços cadastrados;
+- `horarios.json`: horários disponíveis;
+- `agendamentos.json`: agendamentos realizados.
+
+## Segurança
+
+O projeto utiliza dois mecanismos básicos de segurança.
+
+### HTTPS
+
+A comunicação entre cliente e servidor é realizada por HTTPS utilizando certificado local autoassinado.
+
+### Chave de API
+
+O cliente envia uma chave de API no cabeçalho:
+
+```text
 X-API-KEY
-O servidor verifica a chave antes de processar a solicitação.
+```
 
-Armazenamento
-Para manter o projeto simples e focado na arquitetura cliente-servidor, foi utilizado armazenamento em arquivos JSON em vez de banco de dados.
+O servidor verifica essa chave antes de processar as requisições protegidas.
 
-Os dados são divididos em:
+Como se trata de um protótipo acadêmico executado localmente, essa implementação tem finalidade demonstrativa.
 
-servicos.json: serviços cadastrados
-horarios.json: horários disponíveis
-agendamentos.json: solicitações realizadas
-Possíveis melhorias futuras
-Banco de dados SQLite ou PostgreSQL
-Autenticação de usuários
-Painel administrativo
-Interface gráfica
-Certificado HTTPS válido
-Controle automático da agenda
-Integração com serviços de mensagens
+## Autor
 
+**Helder Santos**
 
-Autor:
-Helder Santos
-
-Projeto Integrador III-A
-Análise e Desenvolvimento de Sistemas - PUC Goiás
+Projeto Integrador III-A  
+Análise e Desenvolvimento de Sistemas  
+PUC Goiás  
 2026
-
