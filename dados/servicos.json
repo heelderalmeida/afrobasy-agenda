@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "nome": "Tranças Box Braids",
+    "duracao": "4 horas",
+    "valor": 250.0
+  },
+  {
+    "id": 2,
+    "nome": "Twist",
+    "duracao": "3 horas",
+    "valor": 180.0
+  },
+  {
+    "id": 3,
+    "nome": "Manutenção de tranças",
+    "duracao": "2 horas",
+    "valor": 120.0
+  },
+  {
+    "id": 4,
+    "nome": "Penteado afro",
+    "duracao": "2 horas",
+    "valor": 150.0
+  }
+]

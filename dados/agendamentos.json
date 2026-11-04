@@ -1,0 +1,13 @@
+[
+  {
+    "codigo": "AFB-33F637",
+    "nome": "Maria Souza",
+    "telefone": "62999999999",
+    "servico_id": 1,
+    "servico": "Tranças Box Braids",
+    "data": "10/11/2026",
+    "horario": "09:00",
+    "status": "Cancelado",
+    "criado_em": "03/11/2026 22:10:47"
+  }
+]
