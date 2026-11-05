@@ -82,6 +82,69 @@ afrobasy-agenda/
 +-- .gitignore
 ```
 
+## Como executar o projeto
+
+### 1. Criar o ambiente virtual
+
+Abra o terminal na pasta do projeto e execute:
+
+```powershell
+py -m venv .venv
+```
+
+### 2. Ativar o ambiente virtual
+
+```powershell
+.venv\Scripts\Activate.ps1
+```
+
+### 3. Instalar as dependências
+
+```powershell
+py -m pip install -r requirements.txt
+```
+
+### 4. Iniciar o servidor
+
+```powershell
+py servidor.py
+```
+
+O servidor será iniciado localmente em:
+
+```text
+https://127.0.0.1:5000
+```
+
+Mantenha esse terminal aberto.
+
+### 5. Iniciar o cliente
+
+Abra um segundo terminal e ative novamente o ambiente virtual:
+
+```powershell
+.venv\Scripts\Activate.ps1
+```
+
+Depois execute:
+
+```powershell
+py cliente.py
+```
+
+O menu principal será exibido:
+
+```text
+AFROBASY AGENDA
+
+1 - Consultar serviços
+2 - Consultar horários disponíveis
+3 - Solicitar agendamento
+4 - Consultar meu agendamento
+5 - Cancelar agendamento
+0 - Sair
+```
+
 ## Armazenamento dos dados
 
 Para manter o projeto simples e focado na arquitetura cliente-servidor, foram utilizados arquivos JSON em vez de banco de dados.
