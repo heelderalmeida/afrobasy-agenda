@@ -177,8 +177,8 @@ O servidor verifica essa chave antes de processar as requisições protegidas.
 ## Autores
 
 **Helder de Almeida Santos**
-**Breatriz de Freitas Ribeiro de Souza**
-**Eduardo Sales Sousa**
+**// Breatriz de Freitas Ribeiro de Souza**
+**// Eduardo Sales Sousa**
 
 Projeto Integrador III-A  
 Análise e Desenvolvimento de Sistemas  
