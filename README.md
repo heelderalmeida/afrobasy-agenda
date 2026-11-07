@@ -174,9 +174,11 @@ X-API-KEY
 O servidor verifica essa chave antes de processar as requisições protegidas.
 
 
-## Autor
+## Autores
 
-**Helder Santos**
+**Helder de Almeida Santos**
+**Breatriz de Freitas Ribeiro de Souza**
+**Eduardo Sales Sousa**
 
 Projeto Integrador III-A  
 Análise e Desenvolvimento de Sistemas  
